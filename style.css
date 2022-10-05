@@ -124,6 +124,9 @@ footer {
 .email:focus {
   outline: 2px solid var(--clr-primary-blue);
 }
+.email:not(:focus) {
+  outline: 1px solid var(--clr-secondary-paleblue);
+}
 .email::placeholder {
   color: var(--clr-secondary-paleblue);
 }

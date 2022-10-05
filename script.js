@@ -8,14 +8,20 @@ form.addEventListener('submit', e => {
   const emailInput = document.querySelector(".email").value;
   const regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  if (!regex.test(emailInput)) {
+  if (emailInput === "") {
+    document.querySelector(".error").innerText = "Whoops! It looks like you forgot to add your email";
     errorStyle.display = "block";
     inputStyle.outline = "1px solid red";
   }
+  else if (!regex.test(emailInput)) {
+    errorStyle.display = "block";
+    inputStyle.outline = "1px solid red";
+    document.querySelector(".error").innerText = "Please provide a valid email address";
+  }
 })
 
-const paleBlue = getComputedStyle(document.documentElement).getPropertyValue("--clr-secondary-paleblue");
+const blue = getComputedStyle(document.documentElement).getPropertyValue("--clr-primary-blue");
 inputElement.addEventListener('keypress', (e) => {
   errorStyle.display = "none";
-  inputStyle.outline = "1px solid " + paleBlue;
+  inputStyle.outline = "2px solid " + blue;
 })
